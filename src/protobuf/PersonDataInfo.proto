@@ -1,0 +1,43 @@
+syntax = "proto2";
+package com.inspur.protobuf;
+option optimize_for = SPEED;
+//这里修改过由原来的 com.inspur.netty.protobuf改为 com.inspur.netty.example_06
+option java_package = "com.inspur.netty.example_06_01";
+option java_outer_classname = "PersonDataInfo";
+
+
+message MessageInfo{
+
+    enum DataType {
+        PersonType = 1;
+        DogType = 2;
+        CatType = 3;
+    }
+    //这是当前类中必须存在的 元素
+    required DataType data_type = 1;
+
+    oneof dataBody {
+        Person person = 2;
+        Dog dog = 3;
+        Cat cat = 4;
+    }
+
+}
+
+
+
+message Person {
+    required string name = 1;
+    required int32 age = 2;
+    optional string gradename = 3;
+}
+
+message Dog {
+    optional string name = 1;
+    optional int32 age = 2;
+}
+
+message Cat {
+    optional string name = 1;
+    optional string city = 2;
+}

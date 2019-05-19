@@ -1,0 +1,5 @@
+ReplayingDecoder<S> 比 handler 包中的 MessageToByteDecoder 更常用!
+
+泛型S 是指的状态 可以参考源码
+
+LengthFieldBasedFrameDecoder
